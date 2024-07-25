@@ -25,11 +25,13 @@ const handleADDTodoItem=()=>{
     return item?.id === todoItem?.id ? {...item,title:todoItem?.title} : item
   })
   setTodos(findingdata)
+  alert("Updated successully")
  }
  else{
   const newTodoItemadding={...todoItem,id:new Date()?.getTime()?.toString(),completed:false}
   setTodos([...todos,newTodoItemadding])
   setTodoItem(initialState)
+  alert("Added successully")
  }
 }
 else{

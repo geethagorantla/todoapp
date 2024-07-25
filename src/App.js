@@ -48,6 +48,15 @@ const handleEditButton=(id)=>{
 
 }
 
+const handleDeleteButton=(id)=>{
+  const deleteItems=todos?.filter((item)=>{
+    return id !== item?.id
+  })
+  setTodos(deleteItems)
+  setTodoItem(initialState)
+  alert("Deleted Successfully")
+}
+
   return (
     <div className='todo__main'>
       <div>
@@ -68,7 +77,7 @@ const handleEditButton=(id)=>{
        <td>{item?.title}</td>
        <td>{item?.status ? "completed" : "Inprogress"}</td>
        <td><button onClick={()=>handleEditButton(item?.id)}>Edit</button></td>
-       <td><button>Delete</button></td>
+       <td><button onClick={()=>handleDeleteButton(item?.id)}>Delete</button></td>
       </tr>
     })
   }
